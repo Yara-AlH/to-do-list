@@ -1,0 +1,14 @@
+.add-task-btn {
+    display: block;
+    margin: 0 auto;
+    padding: 20px 200px;
+    border: 2px dashed rgba(255, 255, 255, 0.328);
+    color: rgba(255, 255, 255, 0.328);
+}
+
+.add-task-btn:hover{
+    background-color: #23272f24;
+    border: 2px dashed white;
+    color: white;
+
+}

@@ -1,0 +1,9 @@
+.task-holder {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.task-holder:hover {
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 4px 10px;
+    cursor: pointer;
+}

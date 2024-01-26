@@ -1,0 +1,19 @@
+  @import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100;16..144,200;16..144,300;16..144,400;16..144,500;16..144,600;16..144,700&display=swap');
+
+body{
+    background-color: #23272F;
+    padding: 20px;
+    font-family: 'Montagu Slab', serif;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+
+.subhead {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.542);
+}
+
