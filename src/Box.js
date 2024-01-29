@@ -15,7 +15,7 @@ function Box() {
   return (
     <div className="box">
       <div className="container">
-        <Task tasks={tasks} />
+        <Task tasks={tasks} setTasks={setTasks} />
         <AddTask onAddTask={addTask} />
       </div>
     </div>
