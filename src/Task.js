@@ -5,12 +5,17 @@ import erase from "./SFX/erase.wav";
 import TaskSettings from "./TaskSettings";
 import EditingForm from "./EditingForm";
 
-function Task({ tasks, setTasks, addTask }) {
+function Task({
+  tasks,
+  setTasks,
+  setBtnIsVisible,
+  editingIndex,
+  setEditingIndex,
+}) {
   const [taskCompletion, setTaskCompletion] = useState(
     Array(tasks.length).fill(false)
   );
 
-  const [editingIndex, setEditingIndex] = useState(null);
   const [editedTask, setEditedTask] = useState("");
 
   const handleTaskClick = (index) => {
@@ -38,6 +43,7 @@ function Task({ tasks, setTasks, addTask }) {
   const handleEdit = (index) => {
     setEditingIndex(index);
     setEditedTask(tasks[index]);
+    setBtnIsVisible(true);
   };
 
   const handleEditChange = (event) => {

@@ -5,9 +5,22 @@
 
 body{
     background-color: #23272F;
-    padding: 20px;
+    padding: 20px ;
     font-family: 'Montagu Slab', serif;
 }
+
+.logo {
+  cursor: pointer;
+  text-decoration: none;
+  color: white; 
+  transition:  0.3s, transform 0.3s;  
+}
+
+.logo:hover {
+  color: rgb(20, 158, 202);
+}
+
+
 
 h1 {
   letter-spacing: 3px;
@@ -35,7 +48,7 @@ footer a {
 }
 
 footer a:hover {
-  text-decoration: underline;
+  color: white;
 }
 
 .github-link {

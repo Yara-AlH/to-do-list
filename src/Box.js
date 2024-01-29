@@ -5,6 +5,8 @@ import write from "./SFX/write.wav";
 
 function Box() {
   const [tasks, setTasks] = useState([]);
+  const [btnIsVisible, setBtnIsVisible] = useState(true);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const addTask = (newTask) => {
     setTasks([...tasks, newTask]);
@@ -14,8 +16,20 @@ function Box() {
   return (
     <div className="box">
       <div className="container">
-        <Task tasks={tasks} setTasks={setTasks} addTask={addTask} />
-        <AddTask onAddTask={addTask} />
+        <Task
+          tasks={tasks}
+          setTasks={setTasks}
+          addTask={addTask}
+          setBtnIsVisible={setBtnIsVisible}
+          editingIndex={editingIndex}
+          setEditingIndex={setEditingIndex}
+        />
+        <AddTask
+          onAddTask={addTask}
+          btnIsVisible={btnIsVisible}
+          setBtnIsVisible={setBtnIsVisible}
+          setEditingIndex={setEditingIndex}
+        />
       </div>
     </div>
   );

@@ -1,11 +1,14 @@
-import { useState } from "react";
 import Form from "./Form";
 
-function AddTask({ onAddTask }) {
-  const [btnIsVisible, setBtnIsVisible] = useState(true);
-
+function AddTask({
+  onAddTask,
+  btnIsVisible,
+  setBtnIsVisible,
+  setEditingIndex,
+}) {
   const handleBtnClick = () => {
     setBtnIsVisible(false);
+    setEditingIndex(null);
   };
 
   if (btnIsVisible) {
