@@ -36,6 +36,7 @@ function Task({ tasks }) {
             }}
           >
             {task.charAt(0).toUpperCase() + task.slice(1)}
+            <i class="fa-solid fa-xmark"></i>
           </li>
         ))}
       </ul>
