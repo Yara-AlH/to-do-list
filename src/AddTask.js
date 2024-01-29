@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./AddTask.css";
 import Form from "./Form";
 
 function AddTask({ onAddTask }) {

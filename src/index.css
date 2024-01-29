@@ -1,3 +1,55 @@
+
+/* ToDoList */
+
+@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100;16..144,200;16..144,300;16..144,400;16..144,500;16..144,600;16..144,700&display=swap');
+
+body{
+    background-color: #23272F;
+    padding: 20px;
+    font-family: 'Montagu Slab', serif;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+
+.subhead {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.542);
+  /* color:  rgb(20, 158, 202) */
+
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  width: 95%;
+  margin: 20px;
+}
+
+footer a {
+  color: gray;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.github-link {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+
+}
+
+
+/* Box */
+
 body {
     color: white;
     }
@@ -13,4 +65,19 @@ body {
     
     }
 
+    /* AddTask */
     
+    .add-task-btn {
+        display: block;
+        margin: 0 auto;
+        padding: 20px 200px;
+        border: 2px dashed rgba(255, 255, 255, 0.328);
+        color: rgba(255, 255, 255, 0.328);
+    }
+    
+    .add-task-btn:hover{
+        background-color: #23272f24;
+        border: 2px dashed white;
+        color: white;
+    
+    }

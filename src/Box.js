@@ -1,6 +1,5 @@
 import AddTask from "./AddTask.js";
 import Task from "./Task.js";
-import "./Box.css";
 import { useState } from "react";
 import write from "./SFX/write.wav";
 

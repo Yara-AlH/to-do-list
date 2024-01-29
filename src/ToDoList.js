@@ -1,5 +1,4 @@
 import Box from "./Box";
-import "./ToDoList.css";
 
 function ToDoList() {
   return (
@@ -8,7 +7,10 @@ function ToDoList() {
       <div className="subhead mb-5 ">A To-Do list tracker</div>
       <Box />
       <footer className="github-link">
-        Made with 🤍 by <a href="https://github.com/Yara-AlH">Yara</a>
+        Made with 🤍 by{" "}
+        <a href="https://github.com/Yara-AlH" target="_blank" rel="noreferrer">
+          Yara
+        </a>
       </footer>
     </div>
   );
