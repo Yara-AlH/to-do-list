@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Task.css";
 import line from "./SFX/line.wav";
 import erase from "./SFX/erase.wav";
 import TaskSettings from "./TaskSettings";
@@ -63,7 +62,7 @@ function Task({
   };
 
   return (
-    <>
+    <div className="task">
       <ul>
         {tasks.map((task, index) => (
           <li key={index} className="task-holder">
@@ -102,7 +101,7 @@ function Task({
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

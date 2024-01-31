@@ -1,4 +1,3 @@
-import "./Form.css";
 import { useState } from "react";
 
 function Form({ setBtnIsVisible, onAddTask }) {

@@ -13,7 +13,7 @@ function AddTask({
 
   if (btnIsVisible) {
     return (
-      <div className="addTask">
+      <div className="addTask mt-4">
         <button className="btn  add-task-btn " onClick={handleBtnClick}>
           <i className="fa-solid fa-circle-plus"></i> ADD TASK
         </button>
@@ -21,7 +21,7 @@ function AddTask({
     );
   } else {
     return (
-      <div className="addTask">
+      <div className="addTask mt-4">
         <Form setBtnIsVisible={setBtnIsVisible} onAddTask={onAddTask} />
       </div>
     );

@@ -1,73 +1,202 @@
+:root {
+  --background-color: #23272F ;
+  --foreground-color: #343A46;
+  --primary-text-color: white;
+  --secondary-text-color: rgba(255, 255, 255, 0.542);
+  --sub-text-color: rgba(255, 255, 255, 0.328);
+  --hover-color: rgba(255, 255, 255, 0.328);
+  --box-shadow: 5px 5px 19px 1px rgba(255, 255, 255, 0.067);
+  --task-hover: rgba(255, 255, 255, 0.1) 0px 4px 10px;
+  --form-shadow:  rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 3px 6px;
+  --form-placeholder-color: rgba(85, 85, 85, 0.23);
+  --form-control-color:rgba(85, 85, 85, 0.083);
+  --cancel-button-color: rgba(85, 85, 85, 0.33);
+  --cancel-button-hover: rgba(85, 85, 85, 0.69);
+}
 
-/* ToDoList */
+[data-theme="light"] {
+  --background-color: #f5f9fc ;
+  --foreground-color: #ffffff;
+  --primary-text-color: #143e6a;
+  --secondary-text-color: rgba(20, 158, 202, 0.7);
+  --sub-text-color: rgba(20, 158, 202, 0.5);
+  --hover-color: rgba(20, 158, 202, 0.1);
+  --box-shadow: 5px 5px 19px 1px rgba(20, 158, 202, 0.3);
+  --task-hover: rgba(20, 158, 202, 0.1) 0px 4px 10px;
+  --form-shadow: rgba(20, 158, 202, 0.2) 0px 10px 20px, rgba(20, 158, 202, 0.1) 0px 3px 6px;
+  --form-placeholder-color: rgba(20, 158, 202, 0.23);
+  --form-control-color: rgba(20, 158, 202, 0.083);
+  --cancel-button-color: rgba(20, 158, 202, 0.33);
+  --cancel-button-hover: rgba(20, 158, 202, 0.69);
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,100;16..144,200;16..144,300;16..144,400;16..144,500;16..144,600;16..144,700&display=swap');
+/* TO DO LIST */
 
-
-body{
-    background-color: #23272F;
-    padding: 20px ;
-    font-family: 'Montagu Slab', serif;
+.App {
+  background-color: var(--background-color) ;
+  color: var(--primary-text-color);
+  padding: 20px;
+  font-family: 'Montagu Slab', serif;
+  height: 100vh;
 }
 
 .logo {
   cursor: pointer;
   text-decoration: none;
-  color: white; 
-  transition:  0.3s, transform 0.3s;  
+  color: var(--primary-text-color);
+  transition: 0.3s, transform 0.3s;
+  font-size: 28px;
 }
 
 .logo:hover {
   color: rgb(20, 158, 202);
 }
 
-
-
 h1 {
+  color: var(--primary-text-color);
   letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 48px ;
 }
 
 .subhead {
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.542);
-  /* color:  rgb(20, 158, 202) */
-
+  color: var(--secondary-text-color);
 }
 
+/* BOX */
 
+.box-container {
+  background-color: var(--foreground-color);
+  max-width: 700px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 70px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+}
 
-/* Box */
+/* AddTask */
 
-body {
-    color: white;
-    }
-    
-    .container {
-        background-color: #343A46;
-        max-width: 700px;
-        display: block;
-        margin: 0 auto;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 5px 5px 19px 1px rgba(255, 255, 255, 0.067);
-    
-    }
+.add-task-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 170px;
+  border: 2px dashed var(--sub-text-color);
+  color: var(--sub-text-color);
+}
 
-    /* AddTask */
-    
-    .add-task-btn {
-        display: block;
-        margin: 0 auto;
-        padding: 20px 200px;
-        border: 2px dashed rgba(255, 255, 255, 0.328);
-        color: rgba(255, 255, 255, 0.328);
-    }
-    
-    .add-task-btn:hover{
-        background-color: #23272f24;
-        border: 2px dashed white;
-        color: white;
-    
-    }
+.add-task-btn:hover {
+  background-color: var(--hover-color);
+  border: 2px dashed white;
+  color: var(--primary-text-color);
+}
+
+/* TASK */
+
+.task{
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.05);
+}
+
+.task::-webkit-scrollbar {
+  width: 8px;
+}
+
+.task::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.task::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+li {
+  list-style: none;
+  color: var(--primary-text-color);
+}
+
+.task-holder {
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.task-holder:hover {
+  box-shadow: var(--task-hover);
+}
+
+.task-complete {
+  cursor: pointer;
+}
+
+.btns {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-btn,
+.delete-btn {
+  font-size: 14px;
+  color: var(--sub-text-color);
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* FORM */
+
+.form-body {
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  background-color: #ffffff;
+  color: var(--background-color);
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 20px;
+  box-shadow: var(--form-shadow);
+  /* animation: 0.1s ease-in-out 0s 1 normal none running expand */
+}
+
+.form-control::placeholder {
+  color: var(--form-placeholder-color) ; 
+  font-style: italic;
+  letter-spacing: 1.3px;
+  font-weight: 400;
+}
+
+.form-control:valid {
+  background-color: #ffffff ;
+}
+
+.form-control {
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 10px 0px;
+  box-shadow: none;
+  border: none;
+  color: var(--form-control-color);
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.cancel-button {
+  color: var(--cancel-button-color);
+  font-size: 13px;
+}
+
+.cancel-button:hover {
+  color: var(--cancel-button-hover)
+}
