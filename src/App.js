@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ToDoList from "./ToDoList";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 
 function App() {
-  const [lighMode, setLightMode] = useState(false);
+  const [lightMode, setLightMode] = useState(false);
 
   const customStyles = {
     size: "40",
@@ -12,19 +12,23 @@ function App() {
   };
 
   const toggleMode = () => {
-    if (lighMode) {
-      setLightMode(false);
-
-      return;
-    }
-
-    setLightMode(true);
+    // toggling booleans, instead of using if/else
+    const newLightMode = !lightMode;
+    setLightMode(newLightMode);
+    localStorage.setItem("lightMode", JSON.stringify(newLightMode));
   };
 
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("lightMode");
+    if (storedTheme !== null) {
+      setLightMode(JSON.parse(storedTheme));
+    }
+  }, []);
+
   return (
-    <div className="App" data-theme={lighMode ? "light" : "dark"}>
+    <div className="App" data-theme={lightMode ? "light" : "dark"}>
       <DarkModeSwitch
-        checked={lighMode}
+        checked={lightMode}
         onChange={toggleMode}
         size={customStyles.size}
         sunColor={customStyles.sunColor}

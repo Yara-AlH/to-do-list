@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import line from "./SFX/line.wav";
 import erase from "./SFX/erase.wav";
 import TaskSettings from "./TaskSettings";
@@ -30,14 +30,25 @@ function Task({
     }
 
     setTaskCompletion(newTaskCompletion);
+    localStorage.setItem("taskCompletion", JSON.stringify(newTaskCompletion));
   };
 
   const handleDelete = (index) => {
-    const updatedTaskes = [...tasks];
-    updatedTaskes.splice(index, 1);
+    const updatedTasks = [...tasks];
+    updatedTasks.splice(index, 1);
 
-    setTasks(updatedTaskes);
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
+
+  useEffect(() => {
+    const storedCompletedTasks = localStorage.getItem("taskCompletion");
+    const storedDeletedTasks = localStorage.getItem("tasks");
+    if (storedCompletedTasks) {
+      setTasks(JSON.parse(storedCompletedTasks));
+      setTasks(JSON.parse(storedDeletedTasks));
+    }
+  }, [setTasks]);
 
   const handleEdit = (index) => {
     setEditingIndex(index);
@@ -55,6 +66,8 @@ function Task({
     updatedTasks[index] = editedTask;
     setTasks(updatedTasks);
     setEditingIndex(null);
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
   const handleCancelClick = () => {
@@ -75,7 +88,7 @@ function Task({
                 editedTask={editedTask}
               />
             ) : (
-              <>
+              <li draggable>
                 <span
                   className="task-label"
                   style={{
@@ -96,7 +109,7 @@ function Task({
                   Delete={() => handleDelete(index)}
                   Edit={() => handleEdit(index)}
                 />
-              </>
+              </li>
             )}
           </li>
         ))}
@@ -106,3 +119,5 @@ function Task({
 }
 
 export default Task;
+
+// .charAt(0).toUpperCase() + task.slice(1)

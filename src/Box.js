@@ -1,6 +1,6 @@
 import AddTask from "./AddTask.js";
 import Task from "./Task.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import write from "./SFX/write.wav";
 
 function Box() {
@@ -9,9 +9,19 @@ function Box() {
   const [editingIndex, setEditingIndex] = useState(null);
 
   const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
+    const updatedTasks = [...tasks, newTask];
+    setTasks(updatedTasks);
     new Audio(write).play();
+
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      setTasks(JSON.parse(storedTasks));
+    }
+  }, []);
 
   return (
     <div className="box">
